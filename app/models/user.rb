@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     logger.info "\n\n\n FACEBOOK: #{auth.info}\n\n\n"
     unless user
       user = User.create(
-                          name: auth.info.email,
+                          name: auth.info.name,
                           provider: auth.provider,
                           uid: auth.uid,
                           email: auth.info.email,
