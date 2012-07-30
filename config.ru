@@ -2,3 +2,7 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run VoluntariandoMe::Application
+require "rubygems"
+require "bundler"
+
+Bundler.require
