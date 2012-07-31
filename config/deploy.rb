@@ -33,8 +33,8 @@ set :user, "deployerbot"
 set :keep_releases, 5
 
  set :default_environment, {
-    'PATH' => "/usr/local/rvm/bin",
-     'RUBY_VERSION' => 'ruby 1.9.3'
+    'PATH' => "/usr/local/rvm/bin:$PATH",
+     'RUBY_VERSION' => 'ruby-1.9.3-p194'
 #     'GEM_HOME' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems',
 #     'GEM_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems:/usr/local/rvm/gems/ruby-1.9.3-p194@global/gems'
 #    # 'BUNDLE_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems' # If using bundler.
