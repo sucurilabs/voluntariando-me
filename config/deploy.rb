@@ -2,7 +2,7 @@
 
 
 
-set :application, "voluntariando-me"
+set :application, "voluntariando.me"
 
 set :domain, "sucurilabs.net"
 set :environment, "production"
