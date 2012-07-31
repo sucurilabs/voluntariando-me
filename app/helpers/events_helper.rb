@@ -1,4 +1,5 @@
 module EventsHelper
+  
   def toggle_join_event(event = nil)
     @event ||= event
     if @event.has_user?(current_user.id)
@@ -8,4 +9,9 @@ module EventsHelper
     end
     button.html_safe
   end  
+
+  def model_class
+    Event
+  end
+  
 end
