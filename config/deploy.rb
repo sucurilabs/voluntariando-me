@@ -66,9 +66,14 @@ task :ruby_version, :roles => :app do
   run "ruby -v"
   run "source /etc/profile; rvm list"
   run "rvm list"
+  run "rvm gemset list"
 end
 
+task :set_rvm, :roles => :app do
+  run "rvm gemset use voluntariando-me"
+end
 
+before :deploy, :set_rvm
 before "deploy:assets:precompile", "bundle:install"
 after 'deploy:symlink', 'deploy:symlink_vendor_to_shared_vendor'
 after :deploy, 'deploy:trust_rvmrc'
