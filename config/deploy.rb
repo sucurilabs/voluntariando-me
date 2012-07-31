@@ -32,13 +32,13 @@ set :ssh_options, :forward_agent => true
 set :user, "deployerbot"
 set :keep_releases, 5
 
-# set :default_environment, {
+ set :default_environment, {
 #     'PATH' => "/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems/bin:/usr/local/rvm/gems/ruby-1.9.3-p194@global/gems/bin:/usr/local/rvm/bin:$PATH",
-#     'RUBY_VERSION' => 'ruby 1.9.3',
+     'RUBY_VERSION' => 'ruby 1.9.3'
 #     'GEM_HOME' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems',
 #     'GEM_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems:/usr/local/rvm/gems/ruby-1.9.3-p194@global/gems'
 #    # 'BUNDLE_PATH' => '/usr/local/rvm/gems/ruby-1.9.3-p194@voluntariando-me/gems' # If using bundler.
-# }
+ }
 # # set :bundle_gemfile,      "Gemfile"
 # #   set :bundle_dir,          fetch(:shared_path)+"/bundle"
 # #   set :bundle_flags,        "--deployment --quiet"
