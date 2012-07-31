@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  
+  has_many :own_events, :foreign_key => "owner_id", :class_name => "Event"
+  has_many :joins, :class_name => "Event::Join"
+  has_many :events, :through => :joins
+
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name

@@ -1,0 +1,7 @@
+<% if current_user %>
+  <li><%= link_to t('sign_out'), destroy_session_path(current_user), :method => :delete %></li>
+<% else %>
+  <li><%= link_to t('sign_in'), new_session_path(:user) %></li>
+  <li><%= link_to t('sign_up'), new_registration_path(:user) %></li>
+  <li><%= link_to t('sign_in_with_facebook'), omniauth_authorize_path(:user, :facebook) %></li>
+<% end %>

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730222451) do
+ActiveRecord::Schema.define(:version => 20120731025421) do
+
+  create_table "event_joins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "event_joins", ["event_id"], :name => "index_event_joins_on_event_id"
+  add_index "event_joins", ["user_id"], :name => "index_event_joins_on_user_id"
+
+  create_table "events", :force => true do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -29,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120730222451) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
