@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :joins, :class_name => "Event::Join"
   has_many :events, :through => :joins
   belongs_to :neighborhood
+  belongs_to :profession
 
 
   # Setup accessible (or protected) attributes for your model
