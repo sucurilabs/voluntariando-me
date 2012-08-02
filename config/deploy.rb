@@ -51,6 +51,10 @@ namespace :deploy do
     run "touch #{current_path}/tmp/restart.txt"
   end
 
+  desc "seeding db"
+  task :seed do
+    run "cd #{current_path} && bundle exec rake db:seed RAILS_ENV=production"
+  end
   # desc "symlink vendor to shared vendor"
   # task :symlink_vendor_to_shared_vendor do
   #   run "ln -s #{current_path}/../shared/vendor #{current_path}/vendor"
