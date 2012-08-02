@@ -9,8 +9,10 @@
   <dd><%= @event.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-  <dd><%= I18n.l @event.start_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+  <dd><%= I18n.l @event.date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hour) %>:</strong></dt>
+  <dd><%= I18n.l @event.hour %></dd>
 </dl>
 
 <div class="form-actions">

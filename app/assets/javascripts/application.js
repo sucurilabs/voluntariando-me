@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require jquery.ui.datepicker
+//= require twitter/bootstrap/bootstrap-inputmask
 
 $(".date").datepicker({
     dateFormat: 'dd/mm/yy',
@@ -26,3 +27,5 @@ $(".date").datepicker({
     nextText: 'Próximo',
     prevText: 'Anterior'
 });
+
+$(".masked").inputmask();

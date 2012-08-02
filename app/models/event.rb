@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :description, :end_date, :name, :start_date, :owner_id, :cover
+  attr_accessible :description, :end_date, :name, :date, :hour, :owner_id, :cover
 
   belongs_to :owner, :class_name => "User"
   has_many :joins, :class_name => "Event::Join"
