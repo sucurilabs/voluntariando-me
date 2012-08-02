@@ -6,10 +6,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">VoluntariandoMe</a>
+          <%= link_to "Voluntariando.Me", root_path, :class => "brand" %>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to Event.model_name.humanize.pluralize, events_path %></li>
+              <li><%= link_to Event.model_name.human.pluralize, events_path %></li>
               <%= render :partial => "shared/login_bar" %>
             </ul>
           </div><!--/.nav-collapse -->

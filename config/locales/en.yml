@@ -2,4 +2,22 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  view_errors:
+    not_logged: "User is not logged"
+    not_admin: "User not admin"
+  events:
+    join: Join
+    join_success: Join success
+    join_error: Join error
+    leave: Leave
+    leave_success: Leave success
+    leave_error: Leave error
+  helpers:
+    links:
+      confirm: Are you sure
+  welcome:
+    message: "Welcome to Voluntariando.me"
+  sign_in: Login
+  sign_up: Register
+  sing_ou: Logoff
+  sign_in_with_facebook: Login with Facebook

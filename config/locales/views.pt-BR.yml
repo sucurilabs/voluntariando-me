@@ -1,0 +1,21 @@
+#encoding: utf-8
+pt-BR: 
+  view_errors:
+    not_logged: Usuário não logado
+    not_admin: Usuário não é administrador
+  events:
+    join: Participar
+    join_success: Participação no evento confirmada
+    join_error: Ocorreu um erro ao tentear participar do evento
+    leave: Sair
+    leave_success: Saída do evento efetuada com sucesso
+    leave_error: Ocorreu um erro ao tenter sair do evento
+  helpers:
+    links:
+      confirm: Tem certeza disso?
+  welcome:
+    message: "Bem-vindo ao Voluntariando.me"
+  sign_in: Login
+  sign_up: Cadastrar
+  sing_out: Logoff
+  sign_in_with_facebook: Login com o Facebook
