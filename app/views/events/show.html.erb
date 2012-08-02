@@ -4,14 +4,13 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dd><%= image_tag @event.cover.url(:thumb) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @event.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @event.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
   <dd><%= I18n.l @event.start_date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= I18n.l @event.end_date %></dd>
 </dl>
 
 <div class="form-actions">
