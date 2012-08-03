@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   inherit_resources
   include EventsHelper
-  before_filter :is_logged?, :except => [:index, :show]
+  before_filter :is_logged?, :except => [:index, :show, :participants]
   before_filter :is_admin?, :only => [:new, :create, :edit, :update, :destroy]
 
   def create
