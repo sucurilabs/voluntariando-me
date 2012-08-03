@@ -10,6 +10,8 @@ pt-BR:
     leave: Sair
     leave_success: Saída do evento efetuada com sucesso
     leave_error: Ocorreu um erro ao tenter sair do evento
+    show_participants: Exibir participantes
+    participants: Participantes
   helpers:
     links:
       confirm: Tem certeza disso?

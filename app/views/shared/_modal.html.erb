@@ -1,0 +1,14 @@
+<div class="modal hide" id="modal" style="top: 60%">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+    <h3 id="modal_header"><%= yield :modal_header %></h3>
+  </div>
+  <div class="modal-body" id="modal_body">
+    <%= yield :modal_body %>
+  </div>
+  <div class="modal-footer" id="modal_footer">
+    <!-- <a href="#" class="btn" data-dismiss="modal">Close</a> -->
+    <%= yield :modal_footer %>
+    <!-- <a href="#" class="btn btn-primary">Save changes</a> -->
+  </div>
+</div>

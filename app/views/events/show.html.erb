@@ -43,4 +43,5 @@
               :class => 'btn btn-danger' %>
   <% end %>
   <%= link_to t('share_on_facebook'), "#", :onclick => "postToFeed();" %>
+  <%= link_to t('events.show_participants'), "#modal", :class => "btn modal_ajax_button", "data-url" => participants_event_path(@event) %>
 </div>

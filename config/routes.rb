@@ -5,6 +5,7 @@ VoluntariandoMe::Application.routes.draw do
     member do
       post :join
       delete :leave
+      get :participants
     end
   end
   root :to => 'home#index'

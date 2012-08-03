@@ -16,8 +16,10 @@
 //= require_tree .
 //= require jquery.ui.datepicker
 //= require twitter/bootstrap/bootstrap-inputmask
+//= require twitter/bootstrap/bootstrap-modal
 
 $(document).ready(function(){
+  
   $(".date").datepicker({
       dateFormat: 'dd/mm/yy',
       dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
@@ -32,7 +34,32 @@ $(document).ready(function(){
   $(".masked").inputmask();
 
   FB.init({appId: $('#facebook_app_id').attr('content'), status: true, cookie: true});
-})
+  
+  $(".modal_ajax_button").click(function(){
+    getModalInfo($(this).data('url'))
+  })
+
+  $(".modal_button").click(showModal);
+
+});
+
+function showModal(){
+  $("#modal").modal();
+}
+
+function getModalInfo(url){
+  $.ajax(url, {
+    success: function(data){
+      setModalInfo(data);
+      showModal();
+    }
+  });
+};
+
+function setModalInfo(data) {
+  $("#modal_header").html(data.modal_header);
+  $("#modal_body").html(data.modal_body);
+}
 function postToFeed() {
     // calling the API ...
     var obj = {

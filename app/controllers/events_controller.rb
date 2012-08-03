@@ -31,6 +31,17 @@ class EventsController < ApplicationController
     render :json => {:html => toggle_join_event, :message => message}
   end
 
+  def participants
+    event = Event.find(params[:id])
+    participants = event.participants_by_join_date
+    response = {:modal_header => t('events.participants'), :modal_body => "<ul>"}
+    participants.each do |participant|
+      response[:modal_body] << "<li>#{participant.email}</li>"
+    end
+    response[:modal_body] << "</ul>"
+    render :json => response
+  end
+
   protected
     def is_logged?
       unless current_user

@@ -3,9 +3,14 @@ class Event < ActiveRecord::Base
 
   belongs_to :owner, :class_name => "User"
   has_many :joins, :class_name => "Event::Join"
-  has_many :users, :through => :joins
+  has_many :participants, :through => :joins, :source => :user
   
   mount_uploader :cover, CoverUploader
+
+  def participants_by_join_date
+    participants.order("event_joins.created_at DESC")
+  end
+
   def has_user?(user_id)
     self.joins.collect(&:user_id).include?(user_id)
   end  
