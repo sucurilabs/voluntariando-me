@@ -17,15 +17,36 @@
 //= require jquery.ui.datepicker
 //= require twitter/bootstrap/bootstrap-inputmask
 
-$(".date").datepicker({
-    dateFormat: 'dd/mm/yy',
-    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-    nextText: 'Próximo',
-    prevText: 'Anterior'
-});
+$(document).ready(function(){
+  $(".date").datepicker({
+      dateFormat: 'dd/mm/yy',
+      dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+      dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+      dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+      monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+      monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+      nextText: 'Próximo',
+      prevText: 'Anterior'
+  });
 
-$(".masked").inputmask();
+  $(".masked").inputmask();
+
+  FB.init({appId: $('#facebook_app_id').attr('content'), status: true, cookie: true});
+})
+function postToFeed() {
+    // calling the API ...
+    var obj = {
+      method: 'feed',
+      link: $('#facebook_url').attr('content'),
+      picture: $('#facebook_image').attr('content'),
+      name: $('#facebook_title').attr('content'),
+      caption: 'Voluntariando.Me',
+      description: $('#facebook_description').attr('content')
+    };
+
+    function callback(response) {
+      //document.getElementById('msg').innerHTML = "Post ID: " + response['post_id'];
+    }
+
+    FB.ui(obj, callback);
+  }
