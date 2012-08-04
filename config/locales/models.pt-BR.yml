@@ -13,8 +13,10 @@ pt-BR:
         password_confirmation: Repita a senha
         email: Email
         remember_me: Lembrar de mim
+        neighborhood: Bairro
       event:      
         name: Nome
         description: Descrição
         date: Data
         hour: Hora
+        neighborhood: Bairro

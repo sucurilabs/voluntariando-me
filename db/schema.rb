@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803010045) do
+ActiveRecord::Schema.define(:version => 20120804221653) do
 
   create_table "event_joins", :force => true do |t|
     t.integer  "user_id"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(:version => 20120803010045) do
     t.integer  "owner_id"
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.time     "hour"
     t.date     "date"
     t.string   "cover"
+    t.integer  "neighborhood_id"
   end
 
   create_table "neighborhoods", :force => true do |t|
