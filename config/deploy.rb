@@ -81,6 +81,7 @@ end
 #   end
 # end
 
+after :deploy, "deploy:migrate"
 before "deploy:assets:precompile", "bundle:install"
 after 'deploy:symlink', 'deploy:symlink_vendor_to_shared_vendor'
 after :deploy, 'deploy:trust_rvmrc'
