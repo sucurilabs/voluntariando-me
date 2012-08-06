@@ -1,0 +1,13 @@
+<tr id="need">
+    <td>
+      <%= text_field_tag "event[needs_attributes][][name]", need.name %>
+    </td>
+    <td>
+      <%= text_field_tag "event[needs_attributes][][quantity]", need.quantity, :class => "input_number" %>
+    </td>
+    <td>
+      <%= link_to_function t('remove'), "removeNeed(this, '#{new_need_path}')", :class => "btn btn-mini btn-danger" %>
+    </td>
+    <%= hidden_field_tag "event[needs_attributes][][id]", need.id %>
+    <%= hidden_field_tag "event[needs_attributes][][_destroy]", false, :class => "destroy_field" %>
+</td>

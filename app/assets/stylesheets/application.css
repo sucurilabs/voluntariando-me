@@ -12,3 +12,7 @@
  *= require_tree .
  *= require jquery.ui.all
  */
+
+ .input_number {
+  width: 30px;
+ }

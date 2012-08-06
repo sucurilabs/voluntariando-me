@@ -6,6 +6,7 @@ pt-BR:
       event: Evento
       neighborhood: Bairro
       profession: Profissão
+      need: Necessidade
     attributes:
       user:
         name: Nome
@@ -19,4 +20,7 @@ pt-BR:
         description: Descrição
         date: Data
         hour: Hora
-        neighborhood: Bairro
+        neighborhood_id: Bairro
+      need:
+        name: Nome
+        quantity: Quantidade

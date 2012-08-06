@@ -2,9 +2,25 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :cover, :as => :file %>
-  <%= f.input :date, :as => :string, :input_html => { :class => 'date' } %>
-  <%= f.input :hour, :as => :string, :input_html => { :class => 'masked', "data-mask" => "99:99" } %>
+  <%= f.input :date, :as => :string, :input_html => { :class => 'date', :value => "#{l(f.object.date) if f.object.date}" } %>
+  <%= f.input :hour, :as => :string, :input_html => { :class => 'masked', "data-mask" => "99:99", :value => "#{l(f.object.hour) if f.object.hour}" } %>
   <%= render :partial => 'neighborhoods/list', :locals => { :f => f } %>
+  <fieldset>
+    <legend><%= Need.model_name.human.pluralize %></legend>
+    <table>
+      <th><%= Need.human_attribute_name(:name) %></th>
+      <th><%= Need.human_attribute_name(:quantity) %></th>
+      <th><%= t('actions') %></th>
+      <tbody id="needs">
+        <% @event.needs.each do |need| %>
+          <%= render :partial => "needs/new", :locals => { :need => need } %>
+        <% end %>
+        <%= render :partial => "needs/new", :locals => { :need => Need.new } if @event.needs.empty? %>
+      </tbody>
+    </table>
+
+    <%= link_to_function "Mais necessidades", "moreNeed('#{new_need_path}')" %>
+  </fieldset>
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

@@ -4,7 +4,7 @@
 <div class="control-group select optional">
   <%= label_tag :localization, t('localization'), :class => "control-label select optional" %>
   <div class="controls">
-    <%= select_tag :localization, 
+    <%= select_tag :neig, 
       options_for_select( Neighborhood::LOCALIZATIONS.collect { |localization| [ localization, Neighborhood::LOCALIZATIONS.index(localization) ] }, 
         :selected => f.object.neighborhood.try(:localization_id)),
       :id => "select_localization",  "data-url" => list_neighborhoods_path, :class => "select"%> 
