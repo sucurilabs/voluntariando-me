@@ -25,3 +25,10 @@ pt-BR:
   remove: Remover
   action: Ação
   actions: Ações
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próximo &rsaquo;"
+      truncate: "..."

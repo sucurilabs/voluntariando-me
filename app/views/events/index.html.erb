@@ -1,16 +1,20 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <%= select_tag :localization, 
+      options_for_select( [["Todos", 4]].concat(Neighborhood::LOCALIZATIONS.collect { |localization| [ localization, Neighborhood::LOCALIZATIONS.index(localization) ] }), 
+      :selected => params[:localization_id] || 4),
+      :id => "filter_localization",  "data-url" => events_path%> 
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:neighborhood) %></th>
+      <th><%= model_class.human_attribute_name(:neighborhood_id) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:hour) %></th>
       <% if current_user %>
-        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        <th><%=t '.actions', :default => t("actions") %></th>
       <% end %>
     </tr>
   </thead>
@@ -42,6 +46,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @events, :theme => 'twitter-bootstrap' %>
 <% if current_user && current_user.admin? %>
   <%= link_to t('.new', :default => t("helpers.links.new")),
               new_event_path,

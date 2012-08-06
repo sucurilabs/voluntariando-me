@@ -22,6 +22,10 @@ removeNeed = (element, url) =>
   if $("#needs").find("tr:visible").length <= 0
     moreNeed(url)
 
+$('#filter_localization').change (e) =>
+  element = $(e.currentTarget)
+  window.location = element.data('url') + "?localization_id=" + element.val()
+
 window["moreNeed"] = moreNeed
 window["removeNeed"] = removeNeed
 window["eventToggle"] = eventToggle
