@@ -5,9 +5,9 @@
   <%= label_tag :localization, t('localization'), :class => "control-label select optional" %>
   <div class="controls">
     <%= select_tag :localization, 
-      options_for_select( Neighborhood::LOCALIZATIONS.collect { |localization| [ localization, Neighborhood::LOCALIZATIONS.index(localization) ] }),
-      :id => "select_localization",  "data-url" => list_neighborhoods_path,
-      :selected => f.object.neighborhood.try(:localization_id), :class => "select"%> 
+      options_for_select( Neighborhood::LOCALIZATIONS.collect { |localization| [ localization, Neighborhood::LOCALIZATIONS.index(localization) ] }, 
+        :selected => f.object.neighborhood.try(:localization_id)),
+      :id => "select_localization",  "data-url" => list_neighborhoods_path, :class => "select"%> 
     </div>
 </div>
 <%= f.input :neighborhood_id, :collection => Neighborhood.all, :input_html => { :id => :select_neighborhood } %>
