@@ -8,4 +8,8 @@ eventToggle = (url, method) =>
     $("#join_buttons").html(data.html)
   })
 
+$('#filter_localization').change (e) =>
+  element = $(e.currentTarget)
+  window.location = element.data('url') + "?localization_id=" + element.val()
+
 window["eventToggle"] = eventToggle

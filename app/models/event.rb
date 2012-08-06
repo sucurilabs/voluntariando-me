@@ -14,6 +14,15 @@ class Event < ActiveRecord::Base
 
   def has_user?(user_id)
     self.joins.collect(&:user_id).include?(user_id)
-  end  
+  end 
+
+  def self.by_localization(localization_id)
+    localization_id ||= 4
+    if localization_id != 4
+      joins(:neighborhood).where(["neighborhoods.localization_id = ?", localization_id])
+    else
+       unscoped
+    end
+  end
 end
 

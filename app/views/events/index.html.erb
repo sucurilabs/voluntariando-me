@@ -1,5 +1,8 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <%= select_tag :localization, 
+      options_for_select( Neighborhood::LOCALIZATIONS.collect { |localization| [ localization, Neighborhood::LOCALIZATIONS.index(localization) ] }.concat([["Todos", 4]]), :selected => 4),
+      :id => "filter_localization",  "data-url" => events_path%> 
 </div>
 <table class="table table-striped">
   <thead>

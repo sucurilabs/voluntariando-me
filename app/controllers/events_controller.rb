@@ -4,6 +4,10 @@ class EventsController < ApplicationController
   before_filter :is_logged?, :except => [:index, :show, :participants]
   before_filter :is_admin?, :only => [:new, :create, :edit, :update, :destroy]
 
+  def index
+    @events = Event.by_localization(params[:localization_id]).page(params[:page]).per(10)
+  end
+
   def create
     params[:event].merge!(:owner_id => current_user.id)
     create!
