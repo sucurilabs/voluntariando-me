@@ -12,9 +12,13 @@ class User < ActiveRecord::Base
   belongs_to :neighborhood
   belongs_to :profession
 
+  mount_uploader :avatar, AvatarUploader
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :admin
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :admin, :current_password, :neighborhood_id
+
+  validates_presence_of :name, :neighborhood_id, :on => :update
+  
   # attr_accessible :title, :body
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -29,5 +33,13 @@ class User < ActiveRecord::Base
                         )
     end
     user
+  end
+
+  def update_with_password(params={}) 
+    if params[:password].blank? 
+      params.delete(:password) 
+      params.delete(:password_confirmation) if params[:password_confirmation].blank? 
+    end 
+    update_attributes(params) 
   end
 end
